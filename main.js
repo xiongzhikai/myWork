@@ -24,17 +24,24 @@ lineReader.eachLine('./main.csv', function(line, last) {
   template.helper('priceFormat', function( number,formatSize ) {
   	if ( isNaN(number) ) return number;
 	return function(){
-        var l = number.split("").reverse();
-        var t = "",
-        	price = "";
-        for(var i = 0; i < l.length; i ++ )
-        {
-            t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+        // var l = number.split("").reverse();
+        // var t = "",
+        // 	price = "";
+        // for(var i = 0; i < l.length; i ++ )
+        // {
+        //     t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+        // }
+        // for ( var j = t.length; j > 0; j-- ) {
+        // 	price += t.charAt( j - 1 ); 
+        // }
+        // return price;
+        var l = number.split("");
+        for ( var i = l.length; i > 0; i-- ) {
+        	if ( ((i - 1) != 0) && (( i - 1 ) % 3 == 0) ) {
+        		l.splice( (l.length - i + 1), 0, ",");
+        	}
         }
-        for ( var j = t.length; j > 0; j-- ) {
-        	price += t.charAt( j - 1 ); 
-        }
-        return price;
+        return l.join("") + "";
 	}
   });
   var html = template(__dirname + '/main', data);
