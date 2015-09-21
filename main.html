@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>消息中心</title>
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no"/>-->
+    <!--replace ua.js-->
+    <script src="js/ua.js"></script>
+    <!--replace ua.js-->
+    <!--replace main.css-->
+    <link rel="stylesheet" href="css/main.css"/>
+    <!--replace main.css-->
+</head>
+<body>
+<div class="new-center-wrap">
+    <h1 class="new-center-title font32 color2f">{{data.header}}</h1>
+
+    <p class="new-center-time font24 color63">{{data.time}}</p>
+
+    {{each data.desc_1 as value}}
+    <p class="new-center-describe font28 mg-top1 color42">
+        {{value}}
+    </p>
+    {{/each}}
+
+    <div class="new-center-process mg-top1">
+        {{each data.process as value}}
+        <p class="font24 color63">{{value}}</p>
+        {{/each}}
+    </div>
+    {{each data.table_desc as value}}
+    <p class="new-center-describe mg-top1 no-text-indent font28 color42">
+        {{value}}
+    </p>
+    {{/each}}
+
+    <div class="new-center-table">
+        <table class="table table-striped">
+            {{each tableList as tr}}
+            <tr>
+                {{each tr as value}}
+                <td>{{value | priceFormat}}</td>
+                {{/each}}
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{each data.desc_2 as value}}
+    <p class="new-center-describe font28 color42 mg-top1">
+        {{value}}
+    </p>
+    {{/each}}
+    <div class="new-center-img-wrap mg-top1">
+        {{each data.footer_imgs as src}}
+        <img src="{{src}}" alt="图片缺失"/>
+        {{/each}}
+    </div>
+</div>
+</body>
+</html>
+
