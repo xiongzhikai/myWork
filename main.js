@@ -14,12 +14,12 @@ lineReader.eachLine('./main.csv', function(line, last) {
 	if ( count != 1 ) {
 		tr[0] = nameDismiss(tr[0]);
 	} 
-
-	tableList.push( tr );
+  if( tr[0] != '' ) {
+    tableList.push( tr );
+  }
   
 }).then(function() {
-
-  tableList.pop();
+  console.log(tableList);
   data.tableList = tableList;
   template.helper('priceFormat', function( number,formatSize ) {
   	if ( isNaN(number) ) return number;
