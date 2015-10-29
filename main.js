@@ -22,7 +22,7 @@ lineReader.eachLine('./main.csv', function(line, last) {
   console.log(tableList);
   data.tableList = tableList;
   template.helper('priceFormat', function( number,formatSize ) {
-  	if ( isNaN(number) ) return number;
+  if ( isNaN(number) ) return number;
 	return function(){
         // var l = number.split("").reverse();
         // var t = "",
